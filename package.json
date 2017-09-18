@@ -1,0 +1,32 @@
+{
+	"name": "sizzl",
+	"version": "1.0.0",
+	"description": "Generate boilerplace Node.js workspaces in seconds",
+	"main": "lib/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"sizzl": "lib/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bdsomer/sizzl.git"
+	},
+	"keywords": [
+		"package",
+		"init",
+		"generate",
+		"boilerplate",
+		"workspace",
+		"create",
+		"fast",
+		"easy"
+	],
+	"author": "Bennett Somerville",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bdsomer/sizzl/issues"
+	},
+	"homepage": "https://github.com/bdsomer/sizzl#readme"
+}
