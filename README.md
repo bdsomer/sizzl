@@ -13,6 +13,8 @@ sizzl [flags]
 
 ### `flags`
 
+`h` - Displays the help menu and exits the program.
+
 `d` - Skips questions with default values.
 
 `r` - Creates a boilerplate `README.md` file.
