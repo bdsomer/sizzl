@@ -21,7 +21,7 @@ sizzl [flags]
 
 `l` - Creates a `LICENSE.md` file.
 
-`w` - Creates a `web` directory with boilerplate `index.html` and `404.html` files.
+`w` - Creates a `site/host` directory with boilerplate `index.html` and `404.html` files.
 
 `t` - Creates a `tests` directory with an empty `test.js` file.
 

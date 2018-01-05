@@ -170,25 +170,52 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			case 'UNLICENSED':
 				break
 			default:
-				console.warn(`\x1b[33mWe haven't implemented logic for the ${packageJson.license} license yet. A LICENSE.md file will not be written.\x1b[0m`)
+				console.warn(`\x1b[30m\x1b[43m[WARN]\x1b[0m \x1b[33mWe haven't implemented logic for the ${packageJson.license} license yet. A LICENSE.md file will not be written.\x1b[0m`)
+		}
+	}
+
+	const dirErrHandler = (err, dirName) => {
+		if (err.errno === -17) {
+			console.warn('\x1b[30m\x1b[43m[WARN]\x1b[0m \x1b[33mDirectory "' + dirName + '" already exists.\x1b[0m')
+		} else {
+			console.error('\x1b[30m\x1b[41m[FATAL]\x1b[0m \x1b[31mA fatal error occured:\x1b[0m')
+			console.error(err)
+			system.exit(-1)
 		}
 	}
 
 	if (webApp) {
-		await mkdir(createPath('web'))
-		await writeFile(createPath('web/index.html'), htmlBoilerplate)
-		await writeFile(createPath('web/404.html'), htmlBoilerplate)
+		try {
+			await mkdir(createPath('site'))
+		} catch (err) {
+			dirErrHandler(err, 'site')
+		}
+		try {
+			await mkdir(createPath('site/host'))
+		} catch (err) {
+			dirErrHandler(err, 'site/host')
+		}
+		await writeFile(createPath('site/host/index.html'), htmlBoilerplate)
+		await writeFile(createPath('site/host/404.html'), htmlBoilerplate)
 	}
 
 	const emptyBuffer = Buffer.from([])
 
 	if (createTests) {
-		await mkdir(createPath('tests'))
+		try {
+			await mkdir(createPath('tests'))
+		} catch (err) {
+			dirErrHandler(err, 'tests')
+		}
 		await writeFile(createPath('tests/test.js'), emptyBuffer)
 	}
 
 	if (createLibDir) {
-		await mkdir(createPath('lib'))
+		try {
+			await mkdir(createPath('lib'))
+		} catch (err) {
+			dirErrHandler(err, 'lib')
+		}
 		await writeFile(createPath('lib/index.js'), emptyBuffer)
 	}
 }

@@ -1,13 +1,13 @@
 {
 	"name": "sizzl",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Generate boilerplace Node.js workspaces in seconds",
-	"main": "lib/index.js",
+	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"bin": {
-		"sizzl": "lib/index.js"
+		"sizzl": "index.js"
 	},
 	"repository": {
 		"type": "git",
